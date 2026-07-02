@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury English House | Scape Staycation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">SCAPE STAYCATION</div>
+   <nav>
+    <a href="index.html">Home</a>
+    <a href="villas.html">Villas</a>
+    <a href="service.html">Service</a>
+    <a href="management.html">Management</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Luxury English House</h1>
+        <p>Elegant English-Inspired Private Stay</p>
+
+        <div class="booking-box">
+            <select id="villa">
+                <option>Luxury English House</option>
+            </select>
+
+            <input type="date" id="checkin">
+            <input type="date" id="checkout">
+            <input type="text" id="guest" placeholder="Guest Name">
+
+            <input type="number" id="adults" placeholder="Adults">
+            <input type="number" id="children" placeholder="Children">
+            <input type="text" id="phone" placeholder="Phone Number">
+
+            <button onclick="bookNow()">BOOK NOW</button>
+        </div>
+    </div>
+</section>
+
+<section class="villas-preview">
+    <h2>Villa Details</h2>
+
+    <div style="max-width:1000px; margin:auto; color:#222; line-height:1.8; font-size:18px;">
+
+        <p><strong>Bedrooms:</strong> 3 Bedrooms</p>
+        <p><strong>Location:</strong> Da Nang / Hoi An</p>
+        <p><strong>Guests:</strong> Up to 6 Guests</p>
+        <p><strong>Description:</strong></p>
+
+        <p>
+            Luxury English House offers a refined private stay with elegant English-inspired design,
+            warm interiors and premium comfort for families, couples and boutique travelers.
+        </p>
+
+        <br>
+
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80"
+             style="width:100%; border-radius:20px;">
+
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

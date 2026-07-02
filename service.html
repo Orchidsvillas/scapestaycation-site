@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Services | Scape Staycation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">SCAPE STAYCATION</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="villas.html">Villas</a>
+        <a href="service.html">Service</a>
+        <a href="management.html">Management</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Guest Services</h1>
+        <p>Request housekeeping, transportation, tickets and tours directly through WhatsApp</p>
+
+        <div class="booking-box service-box-layout">
+
+            <div class="service-main">
+
+                <select id="serviceVilla">
+                    <option>Choose Villa</option>
+                    <option>Orchids Villas</option>
+                    <option>Antique HoiAn Villa</option>
+                    <option>Premier Villa</option>
+                    <option>Luxury English House</option>
+                </select>
+
+                <select id="serviceName" onchange="updateServicePrice()">
+                    <option>Choose Service</option>
+                    <option>Housekeeping Service</option>
+                    <option>Towel Replacement</option>
+                    <option>Airport Pickup</option>
+                    <option>Airport Drop-off</option>
+                    <option>Ba Na Hills Tickets</option>
+                    <option>Cham Island Tour</option>
+                    <option>Coconut Forest Tickets</option>
+                    <option>Motorbike Rental</option>
+                    <option>Car Rental</option>
+                </select>
+
+                <input type="date" id="serviceDate">
+                <input type="time" id="serviceTime">
+
+                <div class="price-box">
+                    <div>
+                        <strong>Service Price</strong><br>
+                        <span id="servicePrice">Please choose a service</span>
+                    </div>
+                    <small>The final total will be confirmed via WhatsApp.</small>
+                </div>
+
+                <input type="text" id="roomNumber" placeholder="Room number">
+                <input type="text" id="servicePhone" placeholder="Phone number">
+                <input type="text" id="extraField1" placeholder="Extra information">
+
+                <input type="number" id="serviceQuantity" placeholder="Quantity / Guests / Rental Days">
+
+                <input type="text" id="serviceNote" placeholder="Note: flight time, pickup location, special request...">
+
+                <button onclick="bookService()">BOOK NOW</button>
+
+            </div>
+
+            <div class="service-price-list">
+                <h3>Service Price List</h3>
+
+                <p>
+                    <span>Motorbike Rental</span>
+                    <strong>150,000 VND / day</strong>
+                </p>
+
+                <p>
+                    <span>Car Rental</span>
+                    <strong>2,000,000 VND</strong>
+                </p>
+
+                <p>
+                    <span>Ba Na Hills Tickets</span>
+                    <strong>1,200,000 VND / pax</strong>
+                </p>
+
+                <p>
+                    <span>Coconut Forest Tickets</span>
+                    <strong>450,000 VND / pax</strong>
+                </p>
+
+                <p>
+                    <span>Cham Island Tour</span>
+                    <strong>1,000,000 VND / pax</strong>
+                </p>
+
+                <p>
+                    <span>Airport Pickup</span>
+                    <strong>300,000 VND</strong>
+                </p>
+
+                <p>
+                    <span>Airport Drop-off</span>
+                    <strong>300,000 VND</strong>
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>

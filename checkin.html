@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Check-in | Scape Staycation</title>
+  <link rel="icon" type="image/png" href="scape-logo.png">
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,sans-serif;background:#f5f1ea;color:#1f1f1f}
+    header{background:#111;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:bold;letter-spacing:2px}
+    .logo img{width:42px;height:42px;object-fit:contain}
+    nav a{color:white;text-decoration:none;margin-left:18px;font-size:14px}
+    .hero{padding:70px 7%;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('background.jpeg');background-size:cover;background-position:center;color:white;text-align:center}
+    .hero h1{font-size:42px;margin-bottom:15px}
+    .hero p{font-size:18px;max-width:720px;margin:auto;line-height:1.6}
+    .wrap{max-width:920px;margin:40px auto;padding:0 20px}
+    form{background:white;border-radius:22px;padding:35px;box-shadow:0 15px 40px rgba(0,0,0,.08)}
+    .step{margin-bottom:35px;padding-bottom:25px;border-bottom:1px solid #eee}
+    .step h2{font-size:22px;margin-bottom:18px;color:#111}
+    label{display:block;margin:14px 0 7px;font-weight:bold}
+    input,select,textarea{width:100%;padding:14px;border:1px solid #ccc;border-radius:12px;font-size:15px}
+    textarea{resize:vertical}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .checkbox{display:flex;gap:10px;align-items:flex-start;margin:14px 0}
+    .checkbox input{width:auto;margin-top:4px}
+    button{width:100%;padding:17px;border:none;border-radius:14px;background:#111;color:white;font-size:17px;font-weight:bold;cursor:pointer}
+    button:hover{background:#333}
+    .note{background:#f7f3ec;border-left:4px solid #111;padding:16px;border-radius:12px;line-height:1.6;margin-bottom:25px}
+    footer{text-align:center;padding:30px;color:#777}
+    @media(max-width:700px){
+      header{display:block;text-align:center}
+      nav{margin-top:15px}
+      nav a{display:inline-block;margin:8px}
+      .hero h1{font-size:32px}
+      .grid{grid-template-columns:1fr}
+      form{padding:24px}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="scape-logo.png" alt="Scape Staycation">
+    <span>SCAPE STAYCATION</span>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="villas.html">Villas</a>
+    <a href="service.html">Services</a>
+    <a href="checkin.html">Online Check-in</a>
+    <a href="about.html">About</a>
+    <a href="management.html">Management</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Online Check-in</h1>
+  <p>Please complete your check-in information before arrival. After verification, our team will send your door access code by email or OTA message.</p>
+</section>
+
+<div class="wrap">
+  <div class="note">
+    <strong>Important:</strong> The door code will only be provided after our team verifies your booking information and travel documents.
+  </div>
+
+  <form action="https://formsubmit.co/customerservice@scapestaycation.com" method="POST" enctype="multipart/form-data">
+
+    <input type="hidden" name="_subject" value="New Online Check-in - Scape Staycation">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+
+    <div class="step">
+      <h2>1. Booking Information</h2>
+
+      <label>Booking Source</label>
+      <select name="Booking Source" required>
+        <option value="">Select booking source</option>
+        <option>Airbnb</option>
+        <option>Booking.com</option>
+        <option>Agoda</option>
+        <option>Trip.com</option>
+        <option>Direct Booking</option>
+        <option>Other</option>
+      </select>
+
+      <label>Booking Name</label>
+      <input type="text" name="Booking Name" required>
+
+      <label>Booking Code / Reservation ID</label>
+      <input type="text" name="Booking Code">
+    </div>
+
+    <div class="step">
+      <h2>2. Arrival Information</h2>
+
+      <label>Villa / Property</label>
+      <select name="Villa / Property" required>
+        <option value="">Select property</option>
+        <option>Orchids Villas</option>
+        <option>Antique HoiAn Villa</option>
+        <option>Premier Villa</option>
+        <option>Luxury English House</option>
+      </select>
+
+      <div class="grid">
+        <div>
+          <label>Check-in Date</label>
+          <input type="date" name="Check-in Date" required>
+        </div>
+        <div>
+          <label>Estimated Arrival Time</label>
+          <input type="time" name="Arrival Time" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <h2>3. Guest Information</h2>
+
+      <div class="grid">
+        <div>
+          <label>Number of Adults</label>
+          <input type="number" name="Adults" min="1" required>
+        </div>
+        <div>
+          <label>Number of Children</label>
+          <input type="number" name="Children" min="0" value="0">
+        </div>
+      </div>
+
+      <label>Main Guest Full Name</label>
+      <input type="text" name="Main Guest Full Name" required>
+
+      <label>Nationality</label>
+      <input type="text" name="Nationality" required>
+
+      <label>Date of Birth</label>
+      <input type="date" name="Date of Birth">
+
+      <label>Passport Number</label>
+      <input type="text" name="Passport Number" required>
+
+      <label>Email</label>
+      <input type="email" name="Guest Email" required>
+
+      <label>Phone Number</label>
+      <input type="tel" name="Phone Number" required>
+
+      <label>Additional Guests Information</label>
+      <textarea name="Additional Guests Information" rows="5" placeholder="Please enter full names, nationality and passport numbers of all additional guests."></textarea>
+    </div>
+
+    <div class="step">
+      <h2>4. Travel Documents</h2>
+
+      <label>Upload Passport Photo</label>
+      <input type="file" name="Passport Photo" accept="image/*,.pdf" required>
+
+      <label>Upload Visa Photo / Entry Document</label>
+      <input type="file" name="Visa Photo" accept="image/*,.pdf">
+    </div>
+
+    <div class="step">
+      <h2>5. House Rules Confirmation</h2>
+
+      <label class="checkbox">
+        <input type="checkbox" name="No Smoking Agreement" required>
+        <span>I agree not to smoke inside the property.</span>
+      </label>
+
+      <label class="checkbox">
+        <input type="checkbox" name="No Party Agreement" required>
+        <span>I agree not to organize parties or events.</span>
+      </label>
+
+      <label class="checkbox">
+        <input type="checkbox" name="Registered Guests Only Agreement" required>
+        <span>I confirm that only registered guests will stay at the property.</span>
+      </label>
+
+      <label class="checkbox">
+        <input type="checkbox" name="Door Code Notice" required>
+        <span>I understand that the door code will be sent only after verification.</span>
+      </label>
+    </div>
+
+    <button type="submit">Submit Check-in Information</button>
+
+  </form>
+</div>
+
+<footer>
+  © 2026 Scape Staycation. All rights reserved.
+</footer>
+
+</body>
+</html>

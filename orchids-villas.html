@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orchids Villas | Scape Staycation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">SCAPE STAYCATION</div>
+   <nav>
+    <a href="index.html">Home</a>
+    <a href="villas.html">Villas</a>
+    <a href="service.html">Service</a>
+    <a href="management.html">Management</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Orchids Villas</h1>
+        <p>Private Boutique Stay in Da Nang</p>
+
+        <div class="booking-box">
+            <select id="villa">
+                <option>Orchids Villas</option>
+            </select>
+
+            <input type="date" id="checkin">
+            <input type="date" id="checkout">
+            <input type="text" id="guest" placeholder="Guest Name">
+
+            <input type="number" id="adults" placeholder="Adults">
+            <input type="number" id="children" placeholder="Children">
+            <input type="text" id="phone" placeholder="Phone Number">
+
+            <button onclick="bookNow()">BOOK NOW</button>
+        </div>
+    </div>
+</section>
+
+<section class="villas-preview">
+    <h2>Villa Details</h2>
+
+    <div style="max-width:1000px; margin:auto; color:#222; line-height:1.8; font-size:18px;">
+
+        <p><strong>Bedrooms:</strong> 1 Bedroom</p>
+        <p><strong>Location:</strong> Da Nang, Vietnam</p>
+        <p><strong>Guests:</strong> Up to 2 Guests</p>
+        <p><strong>Description:</strong></p>
+
+        <p>
+            Orchids Villas offers a peaceful private boutique stay designed for couples,
+            digital nomads and travelers seeking a premium short stay experience in Vietnam.
+        </p>
+
+        <br>
+
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=80"
+             style="width:100%; border-radius:20px;">
+
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
