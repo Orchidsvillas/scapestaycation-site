@@ -1,72 +1,1093 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premier Villa | Scape Staycation</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Premier Villa | Scape Staycation</title>
+
+  <meta
+    name="description"
+    content="Premier Villa by Scape Staycation — a private 4-bedroom beachside villa with a private swimming pool, accommodation for up to 8 adults and 4 children."
+  >
+
+  <link rel="icon" type="image/png" href="scape-logo.png">
+
+  <style>
+    :root{
+      --black:#111111;
+      --cream:#f5f1ea;
+      --white:#ffffff;
+      --gold:#d99a32;
+      --text:#252525;
+      --muted:#6f6f6f;
+      --line:#e7e0d6;
+      --card:#fbf8f3;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:var(--cream);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    img{
+      display:block;
+      max-width:100%;
+    }
+
+    a{
+      color:inherit;
+    }
+
+    header{
+      width:100%;
+      background:var(--black);
+      color:var(--white);
+      padding:16px 6%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:0 8px 24px rgba(0,0,0,.12);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      flex-shrink:0;
+    }
+
+    .brand img{
+      width:42px;
+      height:42px;
+      object-fit:contain;
+    }
+
+    .brand span{
+      font-size:17px;
+      font-weight:700;
+      letter-spacing:2px;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+      gap:18px;
+    }
+
+    nav a{
+      color:var(--white);
+      text-decoration:none;
+      font-size:14px;
+      transition:.2s ease;
+    }
+
+    nav a:hover,
+    nav a.active{
+      color:#f2b84b;
+    }
+
+    .hero{
+      min-height:620px;
+      padding:80px 7%;
+      display:flex;
+      align-items:flex-end;
+      background:
+        linear-gradient(
+          to top,
+          rgba(0,0,0,.76),
+          rgba(0,0,0,.08) 62%
+        ),
+        url("premier-5.jpg");
+      background-size:cover;
+      background-position:center;
+      color:var(--white);
+    }
+
+    .hero-content{
+      max-width:860px;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:14px;
+      padding:8px 13px;
+      border-radius:999px;
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.35);
+      backdrop-filter:blur(8px);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+
+    .hero h1{
+      font-size:58px;
+      line-height:1.05;
+      margin-bottom:15px;
+      text-shadow:0 6px 25px rgba(0,0,0,.35);
+    }
+
+    .hero p{
+      max-width:760px;
+      font-size:20px;
+      line-height:1.65;
+      color:#f4f4f4;
+    }
+
+    .hero-actions{
+      margin-top:28px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:50px;
+      padding:13px 22px;
+      border-radius:12px;
+      font-size:15px;
+      font-weight:700;
+      text-decoration:none;
+      transition:.2s ease;
+    }
+
+    .button-primary{
+      background:var(--gold);
+      color:var(--white);
+    }
+
+    .button-primary:hover{
+      transform:translateY(-2px);
+      background:#c88927;
+    }
+
+    .button-secondary{
+      color:var(--white);
+      border:1px solid rgba(255,255,255,.7);
+      background:rgba(0,0,0,.22);
+      backdrop-filter:blur(8px);
+    }
+
+    .button-secondary:hover{
+      background:rgba(255,255,255,.14);
+    }
+
+    main{
+      width:min(1180px,calc(100% - 36px));
+      margin:0 auto;
+    }
+
+    .quick-info{
+      margin-top:-34px;
+      position:relative;
+      z-index:5;
+      background:var(--white);
+      border-radius:22px;
+      box-shadow:0 18px 55px rgba(0,0,0,.12);
+      padding:26px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .quick-item{
+      padding:18px;
+      border-radius:16px;
+      background:var(--card);
+      text-align:center;
+    }
+
+    .quick-item strong{
+      display:block;
+      font-size:17px;
+      margin-bottom:5px;
+    }
+
+    .quick-item span{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    section{
+      padding:76px 0 0;
+    }
+
+    .section-heading{
+      margin-bottom:28px;
+    }
+
+    .section-heading span{
+      display:block;
+      color:var(--gold);
+      text-transform:uppercase;
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:1.8px;
+      margin-bottom:8px;
+    }
+
+    .section-heading h2{
+      font-size:38px;
+      line-height:1.15;
+      margin-bottom:12px;
+    }
+
+    .section-heading p{
+      max-width:780px;
+      color:var(--muted);
+      font-size:17px;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:1.35fr 1fr 1fr;
+      grid-template-rows:280px 280px;
+      gap:14px;
+    }
+
+    .gallery-item{
+      border:0;
+      padding:0;
+      background:none;
+      cursor:pointer;
+      overflow:hidden;
+      border-radius:18px;
+      position:relative;
+    }
+
+    .gallery-item:first-child{
+      grid-row:1 / 3;
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .35s ease;
+    }
+
+    .gallery-item:hover img{
+      transform:scale(1.045);
+    }
+
+    .gallery-item::after{
+      content:"View";
+      position:absolute;
+      right:14px;
+      bottom:14px;
+      padding:7px 11px;
+      border-radius:999px;
+      color:#fff;
+      background:rgba(0,0,0,.55);
+      font-size:12px;
+      opacity:0;
+      transition:.25s ease;
+    }
+
+    .gallery-item:hover::after{
+      opacity:1;
+    }
+
+    .content-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.55fr) minmax(300px,.8fr);
+      gap:34px;
+      align-items:start;
+    }
+
+    .content-card,
+    .booking-card{
+      background:var(--white);
+      border-radius:20px;
+      padding:30px;
+      box-shadow:0 12px 36px rgba(0,0,0,.07);
+    }
+
+    .content-card p{
+      color:#525252;
+      margin-bottom:18px;
+      font-size:16px;
+    }
+
+    .highlights{
+      margin-top:26px;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+
+    .highlight{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:16px;
+    }
+
+    .highlight strong{
+      display:block;
+      margin-bottom:5px;
+    }
+
+    .highlight span{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .booking-card{
+      position:sticky;
+      top:105px;
+    }
+
+    .booking-card h3{
+      font-size:25px;
+      margin-bottom:8px;
+    }
+
+    .booking-card > p{
+      color:var(--muted);
+      margin-bottom:20px;
+    }
+
+    .booking-card .button{
+      width:100%;
+      margin-bottom:11px;
+    }
+
+    .button-dark{
+      background:var(--black);
+      color:var(--white);
+    }
+
+    .button-dark:hover{
+      background:#303030;
+    }
+
+    .booking-note{
+      margin-top:10px;
+      padding-top:16px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+    }
+
+    .amenities{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .amenity{
+      min-height:115px;
+      padding:20px;
+      background:var(--white);
+      border-radius:17px;
+      box-shadow:0 10px 28px rgba(0,0,0,.055);
+    }
+
+    .amenity-icon{
+      font-size:25px;
+      margin-bottom:10px;
+    }
+
+    .amenity strong{
+      display:block;
+      margin-bottom:4px;
+    }
+
+    .amenity span{
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .experience{
+      background:var(--black);
+      color:var(--white);
+      border-radius:24px;
+      padding:42px;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:32px;
+      align-items:center;
+    }
+
+    .experience h2{
+      font-size:37px;
+      margin-bottom:14px;
+    }
+
+    .experience p{
+      color:#d9d9d9;
+      font-size:16px;
+    }
+
+    .experience-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .experience-list div{
+      padding:15px 17px;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:13px;
+      background:rgba(255,255,255,.06);
+    }
+
+    .lightbox{
+      position:fixed;
+      inset:0;
+      z-index:3000;
+      background:rgba(0,0,0,.92);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:26px;
+    }
+
+    .lightbox.open{
+      display:flex;
+    }
+
+    .lightbox img{
+      max-width:min(1200px,92vw);
+      max-height:86vh;
+      object-fit:contain;
+      border-radius:10px;
+      box-shadow:0 20px 80px rgba(0,0,0,.55);
+    }
+
+    .lightbox-close{
+      position:fixed;
+      top:20px;
+      right:24px;
+      width:46px;
+      height:46px;
+      border:0;
+      border-radius:50%;
+      color:#fff;
+      background:rgba(255,255,255,.14);
+      font-size:30px;
+      cursor:pointer;
+    }
+
+    .lightbox-nav{
+      position:fixed;
+      top:50%;
+      transform:translateY(-50%);
+      width:48px;
+      height:58px;
+      border:0;
+      border-radius:12px;
+      color:#fff;
+      background:rgba(255,255,255,.14);
+      font-size:30px;
+      cursor:pointer;
+    }
+
+    .lightbox-prev{
+      left:22px;
+    }
+
+    .lightbox-next{
+      right:22px;
+    }
+
+    footer{
+      margin-top:76px;
+      padding:34px 20px;
+      color:#777;
+      text-align:center;
+      border-top:1px solid var(--line);
+    }
+
+    @media(max-width:950px){
+      header{
+        position:relative;
+        display:block;
+        text-align:center;
+      }
+
+      .brand{
+        justify-content:center;
+      }
+
+      nav{
+        justify-content:center;
+        margin-top:15px;
+      }
+
+      .hero{
+        min-height:540px;
+      }
+
+      .hero h1{
+        font-size:46px;
+      }
+
+      .quick-info{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .gallery{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:340px 220px 220px;
+      }
+
+      .gallery-item:first-child{
+        grid-column:1 / 3;
+        grid-row:auto;
+      }
+
+      .content-grid{
+        grid-template-columns:1fr;
+      }
+
+      .booking-card{
+        position:static;
+      }
+
+      .amenities{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .experience{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:650px){
+      header{
+        padding:16px 20px;
+      }
+
+      nav{
+        gap:10px 15px;
+      }
+
+      nav a{
+        font-size:13px;
+      }
+
+      .hero{
+        min-height:500px;
+        padding:55px 22px;
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .hero p{
+        font-size:17px;
+      }
+
+      main{
+        width:min(100% - 24px,1180px);
+      }
+
+      .quick-info{
+        margin-top:-24px;
+        grid-template-columns:1fr 1fr;
+        padding:15px;
+      }
+
+      .quick-item{
+        padding:14px 8px;
+      }
+
+      section{
+        padding-top:58px;
+      }
+
+      .section-heading h2{
+        font-size:31px;
+      }
+
+      .gallery{
+        display:grid;
+        grid-template-columns:1fr;
+        grid-template-rows:280px repeat(4,210px);
+      }
+
+      .gallery-item:first-child{
+        grid-column:auto;
+      }
+
+      .content-card,
+      .booking-card{
+        padding:22px;
+      }
+
+      .highlights,
+      .amenities{
+        grid-template-columns:1fr;
+      }
+
+      .experience{
+        padding:28px 22px;
+      }
+
+      .experience h2{
+        font-size:30px;
+      }
+
+      .lightbox-nav{
+        width:42px;
+        height:52px;
+      }
+
+      .lightbox-prev{
+        left:8px;
+      }
+
+      .lightbox-next{
+        right:8px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
-    <div class="logo">SCAPE STAYCATION</div>
-    <nav>
+  <a class="brand" href="index.html">
+    <img src="scape-logo.png" alt="Scape Staycation logo">
+    <span>SCAPE STAYCATION</span>
+  </a>
+
+  <nav>
     <a href="index.html">Home</a>
-    <a href="villas.html">Villas</a>
-    <a href="service.html">Service</a>
+    <a href="villas.html" class="active">Villas</a>
+    <a href="dich vu.html">Services</a>
+    <a href="checkin.html">Online Check-in</a>
     <a href="management.html">Management</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
-</nav>
+  </nav>
 </header>
 
 <section class="hero">
-    <div class="hero-content">
-        <h1>Premier Villa</h1>
-        <p>Luxury Private Pool Villa Experience</p>
+  <div class="hero-content">
+    <span class="eyebrow">Private Beachside Villa</span>
 
-        <div class="booking-box">
-            <select id="villa">
-                <option>Premier Villa</option>
-            </select>
+    <h1>Premier Villa</h1>
 
-            <input type="date" id="checkin">
-            <input type="date" id="checkout">
-            <input type="text" id="guest" placeholder="Guest Name">
+    <p>
+      A private four-bedroom villa with its own swimming pool, spacious
+      interiors and access to a beautiful beachside resort environment.
+    </p>
 
-            <input type="number" id="adults" placeholder="Adults">
-            <input type="number" id="children" placeholder="Children">
-            <input type="text" id="phone" placeholder="Phone Number">
+    <div class="hero-actions">
+      <a class="button button-primary" href="index.html#booking">
+        Book Now
+      </a>
 
-            <button onclick="bookNow()">BOOK NOW</button>
-        </div>
+      <a class="button button-secondary" href="checkin.html">
+        Online Check-in
+      </a>
+
+      <a class="button button-secondary" href="#gallery">
+        View Gallery
+      </a>
     </div>
+  </div>
 </section>
 
-<section class="villas-preview">
-    <h2>Villa Details</h2>
+<main>
 
-    <div style="max-width:1000px; margin:auto; color:#222; line-height:1.8; font-size:18px;">
+  <div class="quick-info">
+    <div class="quick-item">
+      <strong>4 Bedrooms</strong>
+      <span>Spacious accommodation for families</span>
+    </div>
 
-        <p><strong>Bedrooms:</strong> 4 Bedrooms</p>
-        <p><strong>Location:</strong> Da Nang / Hoi An</p>
-        <p><strong>Guests:</strong> Up to 8 Guests</p>
-        <p><strong>Description:</strong></p>
+    <div class="quick-item">
+      <strong>Private Pool</strong>
+      <span>Exclusive use for villa guests</span>
+    </div>
+
+    <div class="quick-item">
+      <strong>8 Adults</strong>
+      <span>Maximum adult capacity</span>
+    </div>
+
+    <div class="quick-item">
+      <strong>4 Children</strong>
+      <span>Suitable for family stays</span>
+    </div>
+  </div>
+
+  <section id="gallery">
+    <div class="section-heading">
+      <span>Gallery</span>
+      <h2>Explore Premier Villa</h2>
+      <p>
+        Discover the private pool, beachside setting, comfortable bedrooms
+        and bright modern architecture.
+      </p>
+    </div>
+
+    <div class="gallery">
+      <button class="gallery-item" type="button" data-index="0">
+        <img
+          src="premier-5.jpg"
+          alt="Private swimming pool at Premier Villa"
+          loading="eager"
+        >
+      </button>
+
+      <button class="gallery-item" type="button" data-index="1">
+        <img
+          src="premier-1.jpg"
+          alt="Beach and resort swimming pool near Premier Villa"
+          loading="lazy"
+        >
+      </button>
+
+      <button class="gallery-item" type="button" data-index="2">
+        <img
+          src="premier-2.jpg"
+          alt="Sunset view by the beach at Premier Villa"
+          loading="lazy"
+        >
+      </button>
+
+      <button class="gallery-item" type="button" data-index="3">
+        <img
+          src="premier-3.jpg"
+          alt="Twin bedroom at Premier Villa"
+          loading="lazy"
+        >
+      </button>
+
+      <button class="gallery-item" type="button" data-index="4">
+        <img
+          src="premier-4.jpg"
+          alt="Exterior and electric buggy at Premier Villa"
+          loading="lazy"
+        >
+      </button>
+    </div>
+  </section>
+
+  <section>
+    <div class="content-grid">
+
+      <article class="content-card">
+        <div class="section-heading">
+          <span>About the villa</span>
+          <h2>A private coastal retreat for families and groups</h2>
+        </div>
 
         <p>
-            Premier Villa is a premium private pool villa created for guests seeking
-            elegant interiors, privacy, comfort and a refined hospitality experience
-            in central Vietnam.
+          Premier Villa is a spacious four-bedroom private villa designed
+          for families and groups seeking privacy, comfort and easy access
+          to the coast.
         </p>
 
-        <br>
+        <p>
+          The villa accommodates up to 8 adults and 4 children. Guests can
+          enjoy a private swimming pool, bright bedrooms, balconies and
+          peaceful tropical surroundings.
+        </p>
 
-        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1400&q=80"
-             style="width:100%; border-radius:20px;">
+        <p>
+          The beachside resort setting provides a relaxing atmosphere,
+          landscaped gardens and convenient internal transportation.
+          Online check-in is available before arrival.
+        </p>
+
+        <div class="highlights">
+          <div class="highlight">
+            <strong>Beachside location</strong>
+            <span>Enjoy a relaxing coastal resort environment.</span>
+          </div>
+
+          <div class="highlight">
+            <strong>Private swimming pool</strong>
+            <span>Your own pool throughout the stay.</span>
+          </div>
+
+          <div class="highlight">
+            <strong>Four bedrooms</strong>
+            <span>Comfortable space for families and groups.</span>
+          </div>
+
+          <div class="highlight">
+            <strong>Resort transportation</strong>
+            <span>Convenient internal travel by electric buggy.</span>
+          </div>
+        </div>
+      </article>
+
+      <aside class="booking-card">
+        <h3>Stay at Premier Villa</h3>
+
+        <p>
+          Send your preferred dates and guest information to our reservation
+          team.
+        </p>
+
+        <a class="button button-primary" href="index.html#booking">
+          Book This Villa
+        </a>
+
+        <a class="button button-dark" href="checkin.html">
+          Complete Online Check-in
+        </a>
+
+        <a class="button button-dark" href="dich vu.html">
+          View Guest Services
+        </a>
+
+        <div class="booking-note">
+          Final availability, capacity and rate will be confirmed by
+          Scape Staycation.
+        </div>
+      </aside>
 
     </div>
-</section>
+  </section>
 
-<script src="script.js"></script>
+  <section>
+    <div class="section-heading">
+      <span>Amenities</span>
+      <h2>Designed for a comfortable beachside stay</h2>
+      <p>
+        Premier Villa combines private facilities with access to a peaceful
+        coastal resort environment.
+      </p>
+    </div>
+
+    <div class="amenities">
+      <div class="amenity">
+        <div class="amenity-icon">🏊</div>
+        <strong>Private swimming pool</strong>
+        <span>Exclusive pool for guests staying at the villa.</span>
+      </div>
+
+      <div class="amenity">
+        <div class="amenity-icon">🛏️</div>
+        <strong>Four bedrooms</strong>
+        <span>Comfortable rooms for families and groups.</span>
+      </div>
+
+      <div class="amenity">
+        <div class="amenity-icon">🏖️</div>
+        <strong>Beachside resort</strong>
+        <span>Easy access to a peaceful coastal environment.</span>
+      </div>
+
+      <div class="amenity">
+        <div class="amenity-icon">🌴</div>
+        <strong>Tropical surroundings</strong>
+        <span>Landscaped gardens and relaxing outdoor views.</span>
+      </div>
+
+      <div class="amenity">
+        <div class="amenity-icon">📶</div>
+        <strong>WiFi</strong>
+        <span>Internet access throughout the villa.</span>
+      </div>
+
+      <div class="amenity">
+        <div class="amenity-icon">📺</div>
+        <strong>Television and Netflix</strong>
+        <span>Entertainment available in the guest rooms.</span>
+      </div>
+
+      <div class="amenity">
+        <div class="amenity-icon">❄️</div>
+        <strong>Air conditioning</strong>
+        <span>Comfortable indoor temperature during your stay.</span>
+      </div>
+
+      <div class="amenity">
+        <div class="amenity-icon">🚗</div>
+        <strong>Electric buggy</strong>
+        <span>Convenient transportation within the resort.</span>
+      </div>
+
+      <div class="amenity">
+        <div class="amenity-icon">🔑</div>
+        <strong>Online check-in</strong>
+        <span>Complete guest registration before arrival.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="experience">
+      <div>
+        <span class="eyebrow">Scape Staycation</span>
+
+        <h2>A private villa beside the coast</h2>
+
+        <p>
+          Reserve the entire villa, enjoy your own private pool and complete
+          guest registration online before arrival.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="index.html#booking">
+            Reserve Premier Villa
+          </a>
+
+          <a class="button button-secondary" href="checkin.html">
+            Start Online Check-in
+          </a>
+        </div>
+      </div>
+
+      <div class="experience-list">
+        <div>✓ Four private bedrooms</div>
+        <div>✓ Private swimming pool</div>
+        <div>✓ Maximum 8 adults</div>
+        <div>✓ Up to 4 children</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button
+    class="lightbox-close"
+    id="lightboxClose"
+    type="button"
+    aria-label="Close gallery"
+  >
+    ×
+  </button>
+
+  <button
+    class="lightbox-nav lightbox-prev"
+    id="lightboxPrev"
+    type="button"
+    aria-label="Previous image"
+  >
+    ‹
+  </button>
+
+  <img id="lightboxImage" src="" alt="Premier Villa gallery image">
+
+  <button
+    class="lightbox-nav lightbox-next"
+    id="lightboxNext"
+    type="button"
+    aria-label="Next image"
+  >
+    ›
+  </button>
+</div>
+
+<footer>
+  © 2026 Scape Staycation. All rights reserved.
+</footer>
+
+<script>
+  const galleryImages = [
+    "premier-5.jpg",
+    "premier-1.jpg",
+    "premier-2.jpg",
+    "premier-3.jpg",
+    "premier-4.jpg"
+  ];
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+  const lightboxClose = document.getElementById("lightboxClose");
+  const lightboxPrev = document.getElementById("lightboxPrev");
+  const lightboxNext = document.getElementById("lightboxNext");
+  const galleryButtons = document.querySelectorAll(".gallery-item");
+
+  let currentImageIndex = 0;
+
+  function showImage(index) {
+    currentImageIndex =
+      (index + galleryImages.length) % galleryImages.length;
+
+    lightboxImage.src = galleryImages[currentImageIndex];
+  }
+
+  function openLightbox(index) {
+    showImage(index);
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  galleryButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const index = Number(button.dataset.index);
+      openLightbox(index);
+    });
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+
+  lightboxPrev.addEventListener("click", () => {
+    showImage(currentImageIndex - 1);
+  });
+
+  lightboxNext.addEventListener("click", () => {
+    showImage(currentImageIndex + 1);
+  });
+
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!lightbox.classList.contains("open")) {
+      return;
+    }
+
+    if (event.key === "Escape") {
+      closeLightbox();
+    }
+
+    if (event.key === "ArrowLeft") {
+      showImage(currentImageIndex - 1);
+    }
+
+    if (event.key === "ArrowRight") {
+      showImage(currentImageIndex + 1);
+    }
+  });
+</script>
+
 </body>
 </html>
