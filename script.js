@@ -1,110 +1,343 @@
-function bookNow() {
-  const villa = document.getElementById("villa").value;
-  const checkin = document.getElementById("checkin").value;
-  const checkout = document.getElementById("checkout").value;
-  const adults = document.getElementById("adults").value;
-  const children = document.getElementById("children").value;
-  const guest = document.getElementById("guest").value;
-  const phone = document.getElementById("phone").value;
+// =====================================================
+// SCAPE STAYCATION - MAIN SCRIPT
+// =====================================================
 
-  if (!checkin || !checkout) {
-    alert("Please select check-in and check-out dates.");
+
+// =====================================================
+// 1. BOOKING
+// =====================================================
+
+function bookNow() {
+
+  const villaElement = document.getElementById("villa");
+  const checkinElement = document.getElementById("checkin");
+  const checkoutElement = document.getElementById("checkout");
+  const adultsElement = document.getElementById("adults");
+  const childrenElement = document.getElementById("children");
+  const guestElement = document.getElementById("guest");
+  const phoneElement = document.getElementById("phone");
+
+
+  // Kiểm tra form có tồn tại
+  if (!villaElement || !checkinElement || !checkoutElement) {
+    alert("Booking form error. Please refresh the page.");
     return;
   }
 
-  const params = new URLSearchParams({
-    villa: villa,
-    check_in: checkin,
-    check_out: checkout,
-    adults: adults || "2",
-    children: children || "0",
-    guest: guest || "",
-    phone: phone || "",
-    lang: "en"
-  });
 
-  window.location.href = "booking.html?" + params.toString();
+  // Lấy thông tin khách nhập
+  const villa = villaElement.value;
+  const checkin = checkinElement.value;
+  const checkout = checkoutElement.value;
+
+  const adults = adultsElement ? adultsElement.value : "";
+  const children = childrenElement ? childrenElement.value : "";
+  const guest = guestElement ? guestElement.value : "";
+  const phone = phoneElement ? phoneElement.value : "";
+
+
+  // Kiểm tra khách đã chọn villa chưa
+  if (!villa || villa === "Choose Villa") {
+    alert("Please choose a villa.");
+    return;
   }
 
-  // CÁC VILLA KHÁC -> WHATSAPP
-  const message =
-`SCAPE STAYCATION BOOKING
 
-Villa: ${villa}
+  // Kiểm tra ngày check-in
+  if (!checkin) {
+    alert("Please select check-in date.");
+    return;
+  }
 
-Check in: ${checkin}
-Check out: ${checkout}
 
-Adults: ${adults}
-Children: ${children}
+  // Kiểm tra ngày check-out
+  if (!checkout) {
+    alert("Please select check-out date.");
+    return;
+  }
 
-Guest Name: ${guest}
 
-Phone: ${phone}`;
+  // Kiểm tra check-out phải sau check-in
+  if (new Date(checkout) <= new Date(checkin)) {
+    alert("Check-out date must be after check-in date.");
+    return;
+  }
 
-  const whatsapp =
-    "https://wa.me/84333243243?text=" + encodeURIComponent(message);
 
-  window.open(whatsapp, "_blank");
+  // =====================================================
+  // TẠO THÔNG TIN GỬI SANG BOOKING.HTML
+  // =====================================================
+
+  const params = new URLSearchParams();
+
+  params.set("villa", villa);
+  params.set("check_in", checkin);
+  params.set("check_out", checkout);
+
+  params.set("adults", adults || "2");
+  params.set("children", children || "0");
+
+  params.set("guest", guest);
+  params.set("phone", phone);
+
+  params.set("lang", "en");
+
+
+  // =====================================================
+  // CHUYỂN KHÁCH SANG BOOKING ENGINE
+  // =====================================================
+
+  window.location.href =
+    "booking.html?" + params.toString();
 }
 
 
-// ===============================
-// SERVICE PAGE
-// ===============================
+
+// =====================================================
+// 2. SERVICE PRICE
+// =====================================================
 
 function getServicePrice(service) {
+
   const prices = {
+
     "Motorbike Rental": "150,000 VND / day",
+
     "Car Rental": "2,000,000 VND",
+
     "Ba Na Hills Tickets": "1,200,000 VND / pax",
+
     "Coconut Forest Tickets": "450,000 VND / pax",
+
     "Cham Island Tour": "1,000,000 VND / pax",
+
     "Airport Pickup": "300,000 VND",
+
     "Airport Drop-off": "300,000 VND",
+
     "Housekeeping Service": "Free",
+
     "Towel Replacement": "Free"
+
   };
+
 
   return prices[service] || "Please choose a service";
 }
 
 
+
+// =====================================================
+// 3. UPDATE SERVICE PRICE
+// =====================================================
+
 function updateServicePrice() {
-  const service = document.getElementById("serviceName").value;
-  document.getElementById("servicePrice").innerText =
+
+  const serviceElement =
+    document.getElementById("serviceName");
+
+  const priceElement =
+    document.getElementById("servicePrice");
+
+
+  if (!serviceElement || !priceElement) {
+    return;
+  }
+
+
+  const service = serviceElement.value;
+
+  priceElement.innerText =
     getServicePrice(service);
 }
 
 
+
+// =====================================================
+// 4. BOOK SERVICE VIA WHATSAPP
+// =====================================================
+
 function bookService() {
-  const villa = document.getElementById("serviceVilla").value;
-  const service = document.getElementById("serviceName").value;
-  const date = document.getElementById("serviceDate").value;
-  const time = document.getElementById("serviceTime").value;
-  const room = document.getElementById("roomNumber").value;
-  const quantity = document.getElementById("serviceQuantity").value;
-  const phone = document.getElementById("servicePhone").value;
-  const extra = document.getElementById("extraField1").value;
-  const note = document.getElementById("serviceNote").value;
-  const price = getServicePrice(service);
+
+  const villaElement =
+    document.getElementById("serviceVilla");
+
+  const serviceElement =
+    document.getElementById("serviceName");
+
+  const dateElement =
+    document.getElementById("serviceDate");
+
+  const timeElement =
+    document.getElementById("serviceTime");
+
+  const roomElement =
+    document.getElementById("roomNumber");
+
+  const quantityElement =
+    document.getElementById("serviceQuantity");
+
+  const phoneElement =
+    document.getElementById("servicePhone");
+
+  const extraElement =
+    document.getElementById("extraField1");
+
+  const noteElement =
+    document.getElementById("serviceNote");
+
+
+  if (!villaElement || !serviceElement) {
+    alert("Service form error.");
+    return;
+  }
+
+
+  const villa = villaElement.value;
+
+  const service = serviceElement.value;
+
+  const date =
+    dateElement ? dateElement.value : "";
+
+  const time =
+    timeElement ? timeElement.value : "";
+
+  const room =
+    roomElement ? roomElement.value : "";
+
+  const quantity =
+    quantityElement ? quantityElement.value : "";
+
+  const phone =
+    phoneElement ? phoneElement.value : "";
+
+  const extra =
+    extraElement ? extraElement.value : "";
+
+  const note =
+    noteElement ? noteElement.value : "";
+
+
+  const price =
+    getServicePrice(service);
+
+
+  // =====================================================
+  // TẠO NỘI DUNG WHATSAPP
+  // =====================================================
 
   const message =
 `SCAPE STAYCATION SERVICE REQUEST
 
 Villa: ${villa}
+
 Service: ${service}
+
 Price: ${price}
+
 Date: ${date}
+
 Time: ${time}
+
 Room number: ${room}
+
 Quantity / Guests / Rental Days: ${quantity}
+
 Phone: ${phone}
+
 Extra information: ${extra}
+
 Note: ${note}`;
 
-  const whatsapp =
-    "https://wa.me/84333243243?text=" + encodeURIComponent(message);
 
-  window.open(whatsapp, "_blank");
+  // =====================================================
+  // GỬI WHATSAPP
+  // =====================================================
+
+  const whatsapp =
+    "https://wa.me/84333243243?text=" +
+    encodeURIComponent(message);
+
+
+  window.open(
+    whatsapp,
+    "_blank"
+  );
 }
+
+
+
+// =====================================================
+// 5. SET MINIMUM BOOKING DATE
+// =====================================================
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+
+    const checkin =
+      document.getElementById("checkin");
+
+    const checkout =
+      document.getElementById("checkout");
+
+
+    if (!checkin || !checkout) {
+      return;
+    }
+
+
+    // Ngày hôm nay
+    const today =
+      new Date()
+        .toISOString()
+        .split("T")[0];
+
+
+    checkin.min = today;
+
+
+    // Khi chọn check-in
+    checkin.addEventListener(
+      "change",
+      function () {
+
+        if (!checkin.value) {
+          return;
+        }
+
+
+        const nextDay =
+          new Date(checkin.value);
+
+
+        nextDay.setDate(
+          nextDay.getDate() + 1
+        );
+
+
+        const minimumCheckout =
+          nextDay
+            .toISOString()
+            .split("T")[0];
+
+
+        checkout.min =
+          minimumCheckout;
+
+
+        // Nếu checkout hiện tại không hợp lệ
+        if (
+          checkout.value &&
+          checkout.value <= checkin.value
+        ) {
+
+          checkout.value = "";
+        }
+
+      }
+    );
+
+  }
+);
