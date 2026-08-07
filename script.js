@@ -1,14 +1,40 @@
 function bookNow() {
+  const villa = document.getElementById("villa").value;
+  const checkin = document.getElementById("checkin").value;
+  const checkout = document.getElementById("checkout").value;
+  const adults = document.getElementById("adults").value;
+  const children = document.getElementById("children").value;
+  const guest = document.getElementById("guest").value;
+  const phone = document.getElementById("phone").value;
 
-  let villa = document.getElementById("villa").value;
-  let checkin = document.getElementById("checkin").value;
-  let checkout = document.getElementById("checkout").value;
-  let adults = document.getElementById("adults").value;
-  let children = document.getElementById("children").value;
-  let guest = document.getElementById("guest").value;
-  let phone = document.getElementById("phone").value;
+  // Bắt buộc chọn ngày
+  if (!checkin || !checkout) {
+    alert("Please select check-in and check-out dates.");
+    return;
+  }
 
-  let message =
+  // ANTIQUE -> HOTEL LINK BOOKING ENGINE
+  if (
+    villa === "Antique HoiAn Villa" ||
+    villa === "Antique Hoi An Villa" ||
+    villa === "Antique Retreat Hoi An"
+  ) {
+    const params = new URLSearchParams({
+      check_in: checkin,
+      check_out: checkout,
+      adults: adults || "2",
+      children: children || "0",
+      guest: guest || "",
+      phone: phone || "",
+      lang: "en"
+    });
+
+    window.location.href = "booking.html?" + params.toString();
+    return;
+  }
+
+  // CÁC VILLA KHÁC -> WHATSAPP
+  const message =
 `SCAPE STAYCATION BOOKING
 
 Villa: ${villa}
@@ -23,11 +49,17 @@ Guest Name: ${guest}
 
 Phone: ${phone}`;
 
-  let whatsapp =
-"https://wa.me/84333243243?text=" + encodeURIComponent(message);
+  const whatsapp =
+    "https://wa.me/84333243243?text=" + encodeURIComponent(message);
 
   window.open(whatsapp, "_blank");
 }
+
+
+// ===============================
+// SERVICE PAGE
+// ===============================
+
 function getServicePrice(service) {
   const prices = {
     "Motorbike Rental": "150,000 VND / day",
@@ -44,24 +76,27 @@ function getServicePrice(service) {
   return prices[service] || "Please choose a service";
 }
 
+
 function updateServicePrice() {
-  let service = document.getElementById("serviceName").value;
-  document.getElementById("servicePrice").innerText = getServicePrice(service);
+  const service = document.getElementById("serviceName").value;
+  document.getElementById("servicePrice").innerText =
+    getServicePrice(service);
 }
 
-function bookService() {
-  let villa = document.getElementById("serviceVilla").value;
-  let service = document.getElementById("serviceName").value;
-  let date = document.getElementById("serviceDate").value;
-  let time = document.getElementById("serviceTime").value;
-  let room = document.getElementById("roomNumber").value;
-  let quantity = document.getElementById("serviceQuantity").value;
-  let phone = document.getElementById("servicePhone").value;
-  let extra = document.getElementById("extraField1").value;
-  let note = document.getElementById("serviceNote").value;
-  let price = getServicePrice(service);
 
-  let message =
+function bookService() {
+  const villa = document.getElementById("serviceVilla").value;
+  const service = document.getElementById("serviceName").value;
+  const date = document.getElementById("serviceDate").value;
+  const time = document.getElementById("serviceTime").value;
+  const room = document.getElementById("roomNumber").value;
+  const quantity = document.getElementById("serviceQuantity").value;
+  const phone = document.getElementById("servicePhone").value;
+  const extra = document.getElementById("extraField1").value;
+  const note = document.getElementById("serviceNote").value;
+  const price = getServicePrice(service);
+
+  const message =
 `SCAPE STAYCATION SERVICE REQUEST
 
 Villa: ${villa}
@@ -75,8 +110,8 @@ Phone: ${phone}
 Extra information: ${extra}
 Note: ${note}`;
 
-  let whatsapp =
-"https://wa.me/84333243243?text=" + encodeURIComponent(message);
+  const whatsapp =
+    "https://wa.me/84333243243?text=" + encodeURIComponent(message);
 
   window.open(whatsapp, "_blank");
 }
