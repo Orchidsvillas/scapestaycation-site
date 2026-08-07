@@ -7,30 +7,23 @@ function bookNow() {
   const guest = document.getElementById("guest").value;
   const phone = document.getElementById("phone").value;
 
-  // Bắt buộc chọn ngày
   if (!checkin || !checkout) {
     alert("Please select check-in and check-out dates.");
     return;
   }
 
-  // ANTIQUE -> HOTEL LINK BOOKING ENGINE
-  if (
-    villa === "Antique HoiAn Villa" ||
-    villa === "Antique Hoi An Villa" ||
-    villa === "Antique Retreat Hoi An"
-  ) {
-    const params = new URLSearchParams({
-      check_in: checkin,
-      check_out: checkout,
-      adults: adults || "2",
-      children: children || "0",
-      guest: guest || "",
-      phone: phone || "",
-      lang: "en"
-    });
+  const params = new URLSearchParams({
+    villa: villa,
+    check_in: checkin,
+    check_out: checkout,
+    adults: adults || "2",
+    children: children || "0",
+    guest: guest || "",
+    phone: phone || "",
+    lang: "en"
+  });
 
-    window.location.href = "booking.html?" + params.toString();
-    return;
+  window.location.href = "booking.html?" + params.toString();
   }
 
   // CÁC VILLA KHÁC -> WHATSAPP
