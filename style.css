@@ -365,3 +365,84 @@ footer {
 .logo span {
     color: white;
 }
+
+/* HOTEL LINK BOOKING PAGE */
+.booking-page {
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.hotelink-booking-section {
+  padding: 135px 24px 70px;
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
+.hotelink-booking-heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.hotelink-booking-heading .eyebrow {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #9b7500;
+  margin-bottom: 10px;
+}
+
+.hotelink-booking-heading h1 {
+  color: #0f172a;
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.hotelink-booking-heading > p:not(.eyebrow) {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.booking-date-summary {
+  margin: 16px auto 0;
+  display: inline-block;
+  background: #fff7df;
+  color: #4c3a00;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.booking-date-summary:empty {
+  display: none;
+}
+
+.hotelink-widget-shell {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+  min-height: 520px;
+  overflow: hidden;
+}
+
+#hbe-bws-page,
+#hbe-bws-wrapper,
+.hbe-bws {
+  width: 100%;
+}
+
+@media(max-width: 900px) {
+  .hotelink-booking-section {
+    padding: 45px 12px 40px;
+  }
+
+  .hotelink-booking-heading h1 {
+    font-size: 30px;
+  }
+
+  .hotelink-widget-shell {
+    padding: 8px;
+    border-radius: 12px;
+  }
+}
