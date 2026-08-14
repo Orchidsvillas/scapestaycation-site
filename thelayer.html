@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The Layer | Scape Staycation</title>
+
+  <meta
+    name="description"
+    content="The Layer by Scape Staycation - a tropical private pool villa with modern interiors, lush greenery and a peaceful stay in Vietnam."
+  >
+
+  <style>
+    /* ==============================
+       RESET
+    ============================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #222;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+
+    /* ==============================
+       HEADER
+    ============================== */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 0 6%;
+      height: 78px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(8px);
+      transition: 0.3s;
+    }
+
+    header.scrolled {
+      background: rgba(20, 20, 20, 0.95);
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav a {
+      color: white;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.65;
+    }
+
+    .nav-book {
+      border: 1px solid white;
+      padding: 10px 19px;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 29px;
+      color: white;
+      cursor: pointer;
+    }
+
+
+    /* ==============================
+       HERO
+    ============================== */
+
+    .hero {
+      height: 100vh;
+      min-height: 650px;
+
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.15),
+          rgba(0,0,0,0.48)
+        ),
+        url("DHP_2027.jpg");
+
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+
+      text-align: center;
+      color: white;
+
+      padding: 0 25px 90px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero-small {
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      font-size: clamp(58px, 8vw, 110px);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .hero-description {
+      font-size: 18px;
+      max-width: 620px;
+      margin: auto;
+      font-weight: 300;
+    }
+
+    .scroll-down {
+      margin-top: 38px;
+      display: inline-block;
+
+      width: 42px;
+      height: 42px;
+
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 50%;
+
+      line-height: 40px;
+      font-size: 19px;
+    }
+
+
+    /* ==============================
+       INTRO
+    ============================== */
+
+    .intro {
+      max-width: 1050px;
+      margin: auto;
+      padding: 110px 30px 90px;
+      text-align: center;
+    }
+
+    .section-small-title {
+      color: #8d765f;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .intro h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(35px, 5vw, 58px);
+      font-weight: normal;
+      line-height: 1.2;
+      margin-bottom: 28px;
+    }
+
+    .intro p {
+      max-width: 760px;
+      margin: auto;
+      color: #686868;
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+
+    /* ==============================
+       FEATURE IMAGE
+    ============================== */
+
+    .feature-image {
+      width: 92%;
+      max-width: 1450px;
+      margin: 0 auto 110px;
+      height: 76vh;
+      min-height: 500px;
+      overflow: hidden;
+    }
+
+    .feature-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+    /* ==============================
+       FEATURES
+    ============================== */
+
+    .features {
+      background: #f5f2ed;
+      padding: 95px 7%;
+    }
+
+    .features-inner {
+      max-width: 1200px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .feature-box {
+      text-align: center;
+      padding: 25px 10px;
+    }
+
+    .feature-icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .feature-box h3 {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      font-weight: normal;
+      margin-bottom: 7px;
+    }
+
+    .feature-box p {
+      color: #777;
+      font-size: 14px;
+    }
+
+
+    /* ==============================
+       EXPERIENCE
+    ============================== */
+
+    .experience {
+      max-width: 1300px;
+      margin: auto;
+
+      padding: 120px 30px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+
+      align-items: center;
+    }
+
+    .experience-image {
+      height: 650px;
+    }
+
+    .experience-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .experience-text {
+      max-width: 500px;
+    }
+
+    .experience-text h2 {
+      font-family: Georgia, serif;
+      font-size: 48px;
+      font-weight: normal;
+      line-height: 1.2;
+      margin-bottom: 25px;
+    }
+
+    .experience-text p {
+      color: #6b6b6b;
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+
+    /* ==============================
+       GALLERY
+    ============================== */
+
+    .gallery-section {
+      background: #111;
+      color: white;
+
+      padding: 110px 3%;
+    }
+
+    .gallery-heading {
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+      padding-bottom: 55px;
+    }
+
+    .gallery-heading h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(38px, 5vw, 58px);
+      font-weight: normal;
+      margin-top: 10px;
+    }
+
+    .gallery {
+      max-width: 1500px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      height: 520px;
+    }
+
+    .gallery-item.large {
+      grid-column: span 2;
+      height: 680px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.035);
+    }
+
+    .gallery-item::after {
+      content: "VIEW";
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      border: 1px solid white;
+      padding: 10px 18px;
+
+      font-size: 11px;
+      letter-spacing: 2px;
+
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .gallery-item:hover::after {
+      opacity: 1;
+    }
+
+
+    /* ==============================
+       PRIVATE POOL SECTION
+    ============================== */
+
+    .pool-section {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      min-height: 730px;
+    }
+
+    .pool-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .pool-content {
+      background: #ece5da;
+
+      padding: 80px;
+
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .pool-content h2 {
+      font-family: Georgia, serif;
+      font-size: 50px;
+      line-height: 1.2;
+      font-weight: normal;
+      margin-bottom: 25px;
+    }
+
+    .pool-content p {
+      color: #615d57;
+      line-height: 1.9;
+      max-width: 500px;
+    }
+
+
+    /* ==============================
+       BOOKING CTA
+    ============================== */
+
+    .booking-cta {
+      padding: 130px 25px;
+
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.40),
+          rgba(0,0,0,0.55)
+        ),
+        url("DHP_1933.jpg");
+
+      background-size: cover;
+      background-position: center;
+
+      text-align: center;
+      color: white;
+    }
+
+    .booking-cta h2 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: clamp(42px, 6vw, 70px);
+      margin-bottom: 18px;
+    }
+
+    .booking-cta p {
+      max-width: 620px;
+      margin: 0 auto 35px;
+      font-size: 17px;
+    }
+
+    .booking-button {
+      display: inline-block;
+
+      background: white;
+      color: #222;
+
+      padding: 16px 35px;
+
+      font-size: 13px;
+      letter-spacing: 2px;
+
+      transition: 0.3s;
+    }
+
+    .booking-button:hover {
+      background: #222;
+      color: white;
+    }
+
+
+    /* ==============================
+       FOOTER
+    ============================== */
+
+    footer {
+      background: #0d0d0d;
+      color: #aaa;
+      padding: 60px 7% 35px;
+    }
+
+    .footer-container {
+      max-width: 1250px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 50px;
+    }
+
+    .footer-brand h3 {
+      color: white;
+      font-size: 22px;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
+
+    .footer-brand p {
+      max-width: 400px;
+      font-size: 14px;
+    }
+
+    .footer-column h4 {
+      color: white;
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+
+    .footer-column a {
+      display: block;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+
+    .footer-bottom {
+      max-width: 1250px;
+      margin: 45px auto 0;
+
+      border-top: 1px solid #282828;
+
+      padding-top: 25px;
+
+      font-size: 12px;
+      text-align: center;
+    }
+
+
+    /* ==============================
+       LIGHTBOX
+    ============================== */
+
+    .lightbox {
+      display: none;
+
+      position: fixed;
+      z-index: 99999;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background: rgba(0, 0, 0, 0.96);
+
+      justify-content: center;
+      align-items: center;
+
+      padding: 40px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 94%;
+      max-height: 90vh;
+
+      width: auto;
+      height: auto;
+
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      right: 32px;
+      top: 22px;
+
+      color: white;
+      font-size: 42px;
+
+      cursor: pointer;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      top: 50%;
+
+      color: white;
+      font-size: 44px;
+
+      transform: translateY(-50%);
+
+      cursor: pointer;
+      user-select: none;
+
+      padding: 20px;
+    }
+
+    .lightbox-prev {
+      left: 10px;
+    }
+
+    .lightbox-next {
+      right: 10px;
+    }
+
+
+    /* ==============================
+       TABLET
+    ============================== */
+
+    @media (max-width: 900px) {
+
+      .features-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .experience {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .experience-image {
+        height: 550px;
+      }
+
+      .pool-section {
+        grid-template-columns: 1fr;
+      }
+
+      .pool-image {
+        height: 550px;
+      }
+
+      .pool-content {
+        padding: 70px 40px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+
+    /* ==============================
+       MOBILE MENU
+    ============================== */
+
+    @media (max-width: 760px) {
+
+      header {
+        height: 68px;
+        padding: 0 20px;
+      }
+
+      .logo {
+        font-size: 17px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+
+        position: absolute;
+
+        top: 68px;
+        left: 0;
+
+        width: 100%;
+
+        background: #111;
+
+        padding: 30px;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 20px;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .hero {
+        min-height: 600px;
+        height: 90vh;
+        padding-bottom: 65px;
+      }
+
+      .hero-small {
+        letter-spacing: 3px;
+      }
+
+      .intro {
+        padding: 80px 25px 65px;
+      }
+
+      .feature-image {
+        width: 100%;
+        height: 500px;
+        margin-bottom: 70px;
+      }
+
+      .features {
+        padding: 65px 20px;
+      }
+
+      .features-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .experience {
+        padding: 75px 20px;
+      }
+
+      .experience-image {
+        height: 480px;
+      }
+
+      .experience-text h2 {
+        font-size: 38px;
+      }
+
+      .gallery-section {
+        padding: 80px 10px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item,
+      .gallery-item.large {
+        grid-column: span 1;
+        height: 430px;
+      }
+
+      .pool-image {
+        height: 500px;
+      }
+
+      .pool-content {
+        padding: 65px 25px;
+      }
+
+      .pool-content h2 {
+        font-size: 39px;
+      }
+
+      .booking-cta {
+        padding: 95px 20px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+
+      .lightbox {
+        padding: 10px;
+      }
+
+      .lightbox-prev,
+      .lightbox-next {
+        font-size: 30px;
+      }
+    }
+
+
+    @media (max-width: 480px) {
+
+      .features-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item,
+      .gallery-item.large {
+        height: 330px;
+      }
+
+      .experience-image {
+        height: 400px;
+      }
+
+      .pool-image {
+        height: 390px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- ==============================
+     HEADER
+================================ -->
+
+<header id="header">
+
+  <a href="index.html" class="logo">
+    SCAPE STAYCATION
+  </a>
+
+  <div class="menu-btn" onclick="toggleMenu()">
+    ☰
+  </div>
+
+  <nav id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="villas.html">Villas</a>
+    <a href="service.html">Service</a>
+    <a href="management.html">Management</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+
+    <a href="index.html#booking" class="nav-book">
+      Book Now
+    </a>
+  </nav>
+
+</header>
+
+
+
+<!-- ==============================
+     HERO
+================================ -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="hero-small">
+      Scape Staycation Presents
+    </div>
+
+    <h1>The Layer</h1>
+
+    <p class="hero-description">
+      A tropical hideaway where modern architecture,
+      natural light and lush greenery come together.
+    </p>
+
+    <a href="#discover" class="scroll-down">
+      ↓
+    </a>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==============================
+     INTRO
+================================ -->
+
+<section class="intro" id="discover">
+
+  <div class="section-small-title">
+    The Layer
+  </div>
+
+  <h2>
+    Your Private Tropical Escape
+  </h2>
+
+  <p>
+    Designed as a peaceful retreat surrounded by tropical greenery,
+    The Layer combines contemporary architecture with warm natural
+    materials and generous indoor-outdoor living spaces.
+    Enjoy your own private pool, relaxing interiors and a calm,
+    intimate atmosphere throughout your stay.
+  </p>
+
+</section>
+
+
+
+<!-- ==============================
+     LARGE IMAGE
+================================ -->
+
+<section class="feature-image">
+
+  <img
+    src="DHP_2111.jpg"
+    alt="The Layer tropical villa"
+    loading="lazy"
+  >
+
+</section>
+
+
+
+<!-- ==============================
+     FEATURES
+================================ -->
+
+<section class="features">
+
+  <div class="features-inner">
+
+    <div class="feature-box">
+
+      <div class="feature-icon">♨</div>
+
+      <h3>Private Pool</h3>
+
+      <p>
+        Your own private swimming pool surrounded by tropical greenery.
+      </p>
+
+    </div>
+
+
+    <div class="feature-box">
+
+      <div class="feature-icon">♛</div>
+
+      <h3>Private Bedroom</h3>
+
+      <p>
+        Comfortable bedroom designed for a peaceful night's sleep.
+      </p>
+
+    </div>
+
+
+    <div class="feature-box">
+
+      <div class="feature-icon">✦</div>
+
+      <h3>Tropical Garden</h3>
+
+      <p>
+        Lush greenery creates privacy and a relaxing resort atmosphere.
+      </p>
+
+    </div>
+
+
+    <div class="feature-box">
+
+      <div class="feature-icon">⌂</div>
+
+      <h3>Modern Living</h3>
+
+      <p>
+        Contemporary living space with kitchen and thoughtfully selected furnishings.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==============================
+     EXPERIENCE
+================================ -->
+
+<section class="experience">
+
+  <div class="experience-image">
+
+    <img
+      src="DHP_1956.jpg"
+      alt="The Layer living room"
+      loading="lazy"
+    >
+
+  </div>
+
+
+  <div class="experience-text">
+
+    <div class="section-small-title">
+      Live Differently
+    </div>
+
+    <h2>
+      Designed around nature
+    </h2>
+
+    <p>
+      Floor-to-ceiling glass doors connect the living areas with tropical
+      gardens, allowing natural light to fill the villa throughout the day.
+    </p>
+
+    <p>
+      Warm timber furniture, neutral tones and contemporary details create
+      a comfortable residential feeling while maintaining the experience
+      of a private resort.
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==============================
+     GALLERY
+================================ -->
+
+<section class="gallery-section" id="gallery">
+
+  <div class="gallery-heading">
+
+    <div class="section-small-title">
+      Explore
+    </div>
+
+    <h2>
+      Discover The Layer
+    </h2>
+
+  </div>
+
+
+  <div class="gallery">
+
+
+    <div
+      class="gallery-item large"
+      onclick="openLightbox(0)"
+    >
+      <img
+        src="DHP_2027.jpg"
+        alt="The Layer exterior"
+        loading="lazy"
+      >
+    </div>
+
+
+    <div
+      class="gallery-item"
+      onclick="openLightbox(1)"
+    >
+      <img
+        src="DHP_1933.jpg"
+        alt="Private pool"
+        loading="lazy"
+      >
+    </div>
+
+
+    <div
+      class="gallery-item"
+      onclick="openLightbox(2)"
+    >
+      <img
+        src="DHP_2111.jpg"
+        alt="Private pool and garden"
+        loading="lazy"
+      >
+    </div>
+
+
+    <div
+      class="gallery-item"
+      onclick="openLightbox(3)"
+    >
+      <img
+        src="DHP_1956.jpg"
+        alt="Living room"
+        loading="lazy"
+      >
+    </div>
+
+
+    <div
+      class="gallery-item"
+      onclick="openLightbox(4)"
+    >
+      <img
+        src="DHP_1856.jpg"
+        alt="The Layer bedroom"
+        loading="lazy"
+      >
+    </div>
+
+
+    <div
+      class="gallery-item large"
+      onclick="openLightbox(5)"
+    >
+      <img
+        src="DHP_1832.jpg"
+        alt="The Layer bathroom"
+        loading="lazy"
+      >
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- ==============================
+     PRIVATE POOL
+================================ -->
+
+<section class="pool-section">
+
+  <div class="pool-image">
+
+    <img
+      src="DHP_1933.jpg"
+      alt="The Layer private swimming pool"
+      loading="lazy"
+    >
+
+  </div>
+
+
+  <div class="pool-content">
+
+    <div class="section-small-title">
+      Your Own Space
+    </div>
+
+    <h2>
+      Private Pool Living
+    </h2>
+
+    <p>
+      Step outside and enjoy a secluded private pool surrounded by
+      tropical plants and textured architecture. A quiet place to swim,
+      relax or simply enjoy the sunlight in complete privacy.
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==============================
+     BOOKING
+================================ -->
+
+<section class="booking-cta">
+
+  <div class="section-small-title" style="color:white;">
+    Scape Staycation
+  </div>
+
+  <h2>
+    Stay at The Layer
+  </h2>
+
+  <p>
+    Escape the ordinary and enjoy your own private tropical retreat.
+  </p>
+
+  <a
+    href="index.html#booking"
+    class="booking-button"
+  >
+    BOOK YOUR STAY
+  </a>
+
+</section>
+
+
+
+<!-- ==============================
+     FOOTER
+================================ -->
+
+<footer>
+
+  <div class="footer-container">
+
+    <div class="footer-brand">
+
+      <h3>
+        SCAPE STAYCATION
+      </h3>
+
+      <p>
+        Curated villas and private stays designed for memorable
+        experiences in Central Vietnam.
+      </p>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h4>Explore</h4>
+
+      <a href="index.html">Home</a>
+      <a href="villas.html">Villas</a>
+      <a href="service.html">Services</a>
+      <a href="management.html">Management</a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h4>Scape Staycation</h4>
+
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html#booking">Book Now</a>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    © 2026 Scape Staycation. All Rights Reserved.
+
+  </div>
+
+</footer>
+
+
+
+<!-- ==============================
+     LIGHTBOX
+================================ -->
+
+<div
+  class="lightbox"
+  id="lightbox"
+>
+
+  <span
+    class="lightbox-close"
+    onclick="closeLightbox()"
+  >
+    ×
+  </span>
+
+
+  <span
+    class="lightbox-prev"
+    onclick="changeImage(-1)"
+  >
+    ‹
+  </span>
+
+
+  <img
+    id="lightboxImage"
+    src=""
+    alt="The Layer Gallery"
+  >
+
+
+  <span
+    class="lightbox-next"
+    onclick="changeImage(1)"
+  >
+    ›
+  </span>
+
+</div>
+
+
+
+<script>
+
+  /* ==============================
+     IMAGE LIST
+  ============================== */
+
+  const galleryImages = [
+
+    "DHP_2027.jpg",
+    "DHP_1933.jpg",
+    "DHP_2111.jpg",
+    "DHP_1956.jpg",
+    "DHP_1856.jpg",
+    "DHP_1832.jpg"
+
+  ];
+
+  let currentImage = 0;
+
+
+  /* ==============================
+     LIGHTBOX OPEN
+  ============================== */
+
+  function openLightbox(index) {
+
+    currentImage = index;
+
+    document.getElementById("lightboxImage").src =
+      galleryImages[currentImage];
+
+    document.getElementById("lightbox")
+      .classList.add("active");
+
+    document.body.style.overflow = "hidden";
+
+  }
+
+
+  /* ==============================
+     LIGHTBOX CLOSE
+  ============================== */
+
+  function closeLightbox() {
+
+    document.getElementById("lightbox")
+      .classList.remove("active");
+
+    document.body.style.overflow = "";
+
+  }
+
+
+  /* ==============================
+     CHANGE IMAGE
+  ============================== */
+
+  function changeImage(direction) {
+
+    currentImage += direction;
+
+    if (currentImage < 0) {
+      currentImage = galleryImages.length - 1;
+    }
+
+    if (currentImage >= galleryImages.length) {
+      currentImage = 0;
+    }
+
+    document.getElementById("lightboxImage").src =
+      galleryImages[currentImage];
+
+  }
+
+
+  /* ==============================
+     CLOSE LIGHTBOX BY CLICK
+  ============================== */
+
+  document
+    .getElementById("lightbox")
+    .addEventListener("click", function(event) {
+
+      if (event.target.id === "lightbox") {
+        closeLightbox();
+      }
+
+    });
+
+
+  /* ==============================
+     KEYBOARD
+  ============================== */
+
+  document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+      closeLightbox();
+    }
+
+    if (event.key === "ArrowRight") {
+      changeImage(1);
+    }
+
+    if (event.key === "ArrowLeft") {
+      changeImage(-1);
+    }
+
+  });
+
+
+  /* ==============================
+     HEADER SCROLL
+  ============================== */
+
+  window.addEventListener("scroll", function() {
+
+    const header =
+      document.getElementById("header");
+
+    if (window.scrollY > 80) {
+
+      header.classList.add("scrolled");
+
+    } else {
+
+      header.classList.remove("scrolled");
+
+    }
+
+  });
+
+
+  /* ==============================
+     MOBILE MENU
+  ============================== */
+
+  function toggleMenu() {
+
+    document
+      .getElementById("navMenu")
+      .classList.toggle("active");
+
+  }
+
+</script>
+
+
+</body>
+</html>
