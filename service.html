@@ -1,123 +1,1189 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guest Services | Scape Staycation</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Guest Services | Scape Staycation</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+.language-switcher {
+    margin-left: 15px;
+}
+
+.language-switcher select {
+    background: rgba(255,255,255,0.15);
+    color: inherit;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 6px;
+    padding: 7px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.language-switcher select option {
+    color: #111;
+    background: #fff;
+}
+
+@media (max-width: 768px) {
+    .language-switcher {
+        margin-left: 0;
+        margin-top: 8px;
+    }
+
+    .language-switcher select {
+        font-size: 13px;
+        padding: 5px 8px;
+    }
+}
+</style>
+
 </head>
+
 <body>
 
 <header>
-    <div class="logo">SCAPE STAYCATION</div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="villas.html">Villas</a>
-        <a href="service.html">Service</a>
-        <a href="management.html">Management</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+
+<div class="logo">SCAPE STAYCATION</div>
+
+<nav>
+<a href="index.html" data-i18n="navHome">Home</a>
+<a href="villas.html" data-i18n="navVillas">Villas</a>
+<a href="service.html" data-i18n="navService">Service</a>
+<a href="management.html" data-i18n="navManagement">Management</a>
+<a href="about.html" data-i18n="navAbout">About</a>
+<a href="contact.html" data-i18n="navContact">Contact</a>
+</nav>
+
+<div class="language-switcher">
+<select id="languageSwitcher">
+<option value="en">🇬🇧 EN</option>
+<option value="vi">🇻🇳 VI</option>
+<option value="ko">🇰🇷 한국어</option>
+<option value="zh">🇨🇳 中文</option>
+<option value="ja">🇯🇵 日本語</option>
+<option value="ru">🇷🇺 Русский</option>
+</select>
+</div>
+
 </header>
 
+
 <section class="hero">
-    <div class="hero-content">
-        <h1>Guest Services</h1>
-        <p>Request housekeeping, transportation, tickets and tours directly through WhatsApp</p>
 
-        <div class="booking-box service-box-layout">
+<div class="hero-content">
 
-            <div class="service-main">
+<h1 data-i18n="guestServices">
+Guest Services
+</h1>
 
-                <select id="serviceVilla">
-                    <option>Choose Villa</option>
-                    <option>Orchids Villas</option>
-                    <option>Antique HoiAn Villa</option>
-                    <option>Premier Villa</option>
-                    <option>The Layer</option>
-                </select>
+<p data-i18n="heroDescription">
+Request housekeeping, transportation, tickets and tours directly through WhatsApp
+</p>
 
-                <select id="serviceName" onchange="updateServicePrice()">
-                    <option>Choose Service</option>
-                    <option>Housekeeping Service</option>
-                    <option>Towel Replacement</option>
-                    <option>Airport Pickup</option>
-                    <option>Airport Drop-off</option>
-                    <option>Ba Na Hills Tickets</option>
-                    <option>Cham Island Tour</option>
-                    <option>Coconut Forest Tickets</option>
-                    <option>Motorbike Rental</option>
-                    <option>Car Rental</option>
-                </select>
 
-                <input type="date" id="serviceDate">
-                <input type="time" id="serviceTime">
+<div class="booking-box service-box-layout">
 
-                <div class="price-box">
-                    <div>
-                        <strong>Service Price</strong><br>
-                        <span id="servicePrice">Please choose a service</span>
-                    </div>
-                    <small>The final total will be confirmed via WhatsApp.</small>
-                </div>
+<div class="service-main">
 
-                <input type="text" id="roomNumber" placeholder="Room number">
-                <input type="text" id="servicePhone" placeholder="Phone number">
-                <input type="text" id="extraField1" placeholder="Extra information">
 
-                <input type="number" id="serviceQuantity" placeholder="Quantity / Guests / Rental Days">
+<select id="serviceVilla">
 
-                <input type="text" id="serviceNote" placeholder="Note: flight time, pickup location, special request...">
+<option value="Choose Villa" data-i18n="chooseVilla">
+Choose Villa
+</option>
 
-                <button onclick="bookService()">BOOK NOW</button>
+<option value="Orchids Villas">
+Orchids Villas
+</option>
 
-            </div>
+<option value="Antique HoiAn Villa">
+Antique HoiAn Villa
+</option>
 
-            <div class="service-price-list">
-                <h3>Service Price List</h3>
+<option value="Premier Villa">
+Premier Villa
+</option>
 
-                <p>
-                    <span>Motorbike Rental</span>
-                    <strong>150,000 VND / day</strong>
-                </p>
+<option value="The Layer">
+The Layer
+</option>
 
-                <p>
-                    <span>Car Rental</span>
-                    <strong>2,000,000 VND</strong>
-                </p>
+</select>
 
-                <p>
-                    <span>Ba Na Hills Tickets</span>
-                    <strong>1,200,000 VND / pax</strong>
-                </p>
 
-                <p>
-                    <span>Coconut Forest Tickets</span>
-                    <strong>450,000 VND / pax</strong>
-                </p>
 
-                <p>
-                    <span>Cham Island Tour</span>
-                    <strong>1,000,000 VND / pax</strong>
-                </p>
+<select id="serviceName" onchange="updateServicePrice()">
 
-                <p>
-                    <span>Airport Pickup</span>
-                    <strong>300,000 VND</strong>
-                </p>
+<option value="Choose Service" data-i18n="chooseService">
+Choose Service
+</option>
 
-                <p>
-                    <span>Airport Drop-off</span>
-                    <strong>300,000 VND</strong>
-                </p>
+<option value="Housekeeping Service" data-i18n="housekeeping">
+Housekeeping Service
+</option>
 
-            </div>
+<option value="Towel Replacement" data-i18n="towelReplacement">
+Towel Replacement
+</option>
 
-        </div>
-    </div>
+<option value="Airport Pickup" data-i18n="airportPickup">
+Airport Pickup
+</option>
+
+<option value="Airport Drop-off" data-i18n="airportDropoff">
+Airport Drop-off
+</option>
+
+<option value="Ba Na Hills Tickets" data-i18n="baNa">
+Ba Na Hills Tickets
+</option>
+
+<option value="Cham Island Tour" data-i18n="chamIsland">
+Cham Island Tour
+</option>
+
+<option value="Coconut Forest Tickets" data-i18n="coconutForest">
+Coconut Forest Tickets
+</option>
+
+<option value="Motorbike Rental" data-i18n="motorbike">
+Motorbike Rental
+</option>
+
+<option value="Car Rental" data-i18n="carRental">
+Car Rental
+</option>
+
+</select>
+
+
+<input type="date" id="serviceDate">
+
+<input type="time" id="serviceTime">
+
+
+<div class="price-box">
+
+<div>
+
+<strong data-i18n="servicePriceTitle">
+Service Price
+</strong>
+
+<br>
+
+<span id="servicePrice" data-i18n="chooseServicePrice">
+Please choose a service
+</span>
+
+</div>
+
+<small data-i18n="finalTotal">
+The final total will be confirmed via WhatsApp.
+</small>
+
+</div>
+
+
+<input
+type="text"
+id="roomNumber"
+placeholder="Room number"
+data-i18n-placeholder="roomNumber"
+>
+
+
+<input
+type="text"
+id="servicePhone"
+placeholder="Phone number"
+data-i18n-placeholder="phoneNumber"
+>
+
+
+<input
+type="text"
+id="extraField1"
+placeholder="Extra information"
+data-i18n-placeholder="extraInformation"
+>
+
+
+<input
+type="number"
+id="serviceQuantity"
+placeholder="Quantity / Guests / Rental Days"
+data-i18n-placeholder="quantity"
+>
+
+
+<input
+type="text"
+id="serviceNote"
+placeholder="Note: flight time, pickup location, special request..."
+data-i18n-placeholder="note"
+>
+
+
+<button onclick="bookService()" data-i18n="bookNow">
+BOOK NOW
+</button>
+
+
+</div>
+
+
+
+<div class="service-price-list">
+
+<h3 data-i18n="priceList">
+Service Price List
+</h3>
+
+
+<p>
+<span data-i18n="motorbike">Motorbike Rental</span>
+<strong data-i18n="motorbikePrice">
+150,000 VND / day
+</strong>
+</p>
+
+
+<p>
+<span data-i18n="carRental">Car Rental</span>
+<strong>
+2,000,000 VND
+</strong>
+</p>
+
+
+<p>
+<span data-i18n="baNa">Ba Na Hills Tickets</span>
+<strong data-i18n="baNaPrice">
+1,200,000 VND / pax
+</strong>
+</p>
+
+
+<p>
+<span data-i18n="coconutForest">
+Coconut Forest Tickets
+</span>
+
+<strong data-i18n="coconutPrice">
+450,000 VND / pax
+</strong>
+</p>
+
+
+<p>
+<span data-i18n="chamIsland">
+Cham Island Tour
+</span>
+
+<strong data-i18n="chamPrice">
+1,000,000 VND / pax
+</strong>
+</p>
+
+
+<p>
+<span data-i18n="airportPickup">
+Airport Pickup
+</span>
+
+<strong>
+300,000 VND
+</strong>
+</p>
+
+
+<p>
+<span data-i18n="airportDropoff">
+Airport Drop-off
+</span>
+
+<strong>
+300,000 VND
+</strong>
+</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
+
 <script src="script.js"></script>
+
+
+<script>
+
+/* =====================================================
+   SCAPE STAYCATION MULTI LANGUAGE
+===================================================== */
+
+const translations = {
+
+en: {
+
+navHome: "Home",
+navVillas: "Villas",
+navService: "Service",
+navManagement: "Management",
+navAbout: "About",
+navContact: "Contact",
+
+guestServices: "Guest Services",
+
+heroDescription:
+"Request housekeeping, transportation, tickets and tours directly through WhatsApp",
+
+chooseVilla: "Choose Villa",
+chooseService: "Choose Service",
+
+housekeeping: "Housekeeping Service",
+towelReplacement: "Towel Replacement",
+
+airportPickup: "Airport Pickup",
+airportDropoff: "Airport Drop-off",
+
+baNa: "Ba Na Hills Tickets",
+chamIsland: "Cham Island Tour",
+coconutForest: "Coconut Forest Tickets",
+
+motorbike: "Motorbike Rental",
+carRental: "Car Rental",
+
+servicePriceTitle: "Service Price",
+
+chooseServicePrice:
+"Please choose a service",
+
+finalTotal:
+"The final total will be confirmed via WhatsApp.",
+
+roomNumber: "Room number",
+
+phoneNumber: "Phone number",
+
+extraInformation: "Extra information",
+
+quantity:
+"Quantity / Guests / Rental Days",
+
+note:
+"Note: flight time, pickup location, special request...",
+
+bookNow: "BOOK NOW",
+
+priceList:
+"Service Price List",
+
+motorbikePrice:
+"150,000 VND / day",
+
+baNaPrice:
+"1,200,000 VND / pax",
+
+coconutPrice:
+"450,000 VND / pax",
+
+chamPrice:
+"1,000,000 VND / pax"
+
+},
+
+
+vi: {
+
+navHome: "Trang chủ",
+navVillas: "Biệt thự",
+navService: "Dịch vụ",
+navManagement: "Quản lý",
+navAbout: "Giới thiệu",
+navContact: "Liên hệ",
+
+guestServices:
+"Dịch vụ dành cho khách",
+
+heroDescription:
+"Yêu cầu dọn phòng, phương tiện di chuyển, vé tham quan và tour trực tiếp qua WhatsApp",
+
+chooseVilla:
+"Chọn Villa",
+
+chooseService:
+"Chọn dịch vụ",
+
+housekeeping:
+"Dịch vụ dọn phòng",
+
+towelReplacement:
+"Thay khăn",
+
+airportPickup:
+"Đón sân bay",
+
+airportDropoff:
+"Tiễn sân bay",
+
+baNa:
+"Vé Bà Nà Hills",
+
+chamIsland:
+"Tour Cù Lao Chàm",
+
+coconutForest:
+"Vé Rừng Dừa",
+
+motorbike:
+"Thuê xe máy",
+
+carRental:
+"Thuê ô tô",
+
+servicePriceTitle:
+"Giá dịch vụ",
+
+chooseServicePrice:
+"Vui lòng chọn dịch vụ",
+
+finalTotal:
+"Tổng chi phí cuối cùng sẽ được xác nhận qua WhatsApp.",
+
+roomNumber:
+"Số phòng",
+
+phoneNumber:
+"Số điện thoại",
+
+extraInformation:
+"Thông tin bổ sung",
+
+quantity:
+"Số lượng / Số khách / Số ngày thuê",
+
+note:
+"Ghi chú: giờ bay, địa điểm đón, yêu cầu đặc biệt...",
+
+bookNow:
+"ĐẶT NGAY",
+
+priceList:
+"Bảng giá dịch vụ",
+
+motorbikePrice:
+"150,000 VND / ngày",
+
+baNaPrice:
+"1,200,000 VND / khách",
+
+coconutPrice:
+"450,000 VND / khách",
+
+chamPrice:
+"1,000,000 VND / khách"
+
+},
+
+
+ko: {
+
+navHome: "홈",
+navVillas: "빌라",
+navService: "서비스",
+navManagement: "관리",
+navAbout: "소개",
+navContact: "문의",
+
+guestServices:
+"고객 서비스",
+
+heroDescription:
+"객실 청소, 교통편, 입장권 및 투어를 WhatsApp으로 간편하게 요청하세요.",
+
+chooseVilla:
+"빌라 선택",
+
+chooseService:
+"서비스 선택",
+
+housekeeping:
+"객실 청소 서비스",
+
+towelReplacement:
+"수건 교체",
+
+airportPickup:
+"공항 픽업",
+
+airportDropoff:
+"공항 샌딩",
+
+baNa:
+"바나힐 입장권",
+
+chamIsland:
+"참섬 투어",
+
+coconutForest:
+"코코넛 숲 입장권",
+
+motorbike:
+"오토바이 대여",
+
+carRental:
+"자동차 대여",
+
+servicePriceTitle:
+"서비스 요금",
+
+chooseServicePrice:
+"서비스를 선택해 주세요",
+
+finalTotal:
+"최종 금액은 WhatsApp을 통해 확인해 드립니다.",
+
+roomNumber:
+"객실 번호",
+
+phoneNumber:
+"전화번호",
+
+extraInformation:
+"추가 정보",
+
+quantity:
+"수량 / 인원 / 대여 일수",
+
+note:
+"메모: 항공편 시간, 픽업 장소, 특별 요청 사항...",
+
+bookNow:
+"지금 예약",
+
+priceList:
+"서비스 요금표",
+
+motorbikePrice:
+"150,000 VND / 일",
+
+baNaPrice:
+"1,200,000 VND / 인",
+
+coconutPrice:
+"450,000 VND / 인",
+
+chamPrice:
+"1,000,000 VND / 인"
+
+},
+
+
+zh: {
+
+navHome: "首页",
+navVillas: "别墅",
+navService: "服务",
+navManagement: "管理",
+navAbout: "关于我们",
+navContact: "联系我们",
+
+guestServices:
+"宾客服务",
+
+heroDescription:
+"通过 WhatsApp 直接预订客房清洁、交通、门票和旅游服务。",
+
+chooseVilla:
+"选择别墅",
+
+chooseService:
+"选择服务",
+
+housekeeping:
+"客房清洁服务",
+
+towelReplacement:
+"更换毛巾",
+
+airportPickup:
+"机场接机",
+
+airportDropoff:
+"机场送机",
+
+baNa:
+"巴拿山门票",
+
+chamIsland:
+"占婆岛旅游",
+
+coconutForest:
+"椰林门票",
+
+motorbike:
+"摩托车租赁",
+
+carRental:
+"汽车租赁",
+
+servicePriceTitle:
+"服务价格",
+
+chooseServicePrice:
+"请选择服务",
+
+finalTotal:
+"最终费用将通过 WhatsApp 确认。",
+
+roomNumber:
+"房间号",
+
+phoneNumber:
+"电话号码",
+
+extraInformation:
+"其他信息",
+
+quantity:
+"数量 / 人数 / 租赁天数",
+
+note:
+"备注：航班时间、接送地点、特殊要求...",
+
+bookNow:
+"立即预订",
+
+priceList:
+"服务价格表",
+
+motorbikePrice:
+"150,000 VND / 天",
+
+baNaPrice:
+"1,200,000 VND / 人",
+
+coconutPrice:
+"450,000 VND / 人",
+
+chamPrice:
+"1,000,000 VND / 人"
+
+},
+
+
+ja: {
+
+navHome: "ホーム",
+navVillas: "ヴィラ",
+navService: "サービス",
+navManagement: "管理",
+navAbout: "当社について",
+navContact: "お問い合わせ",
+
+guestServices:
+"ゲストサービス",
+
+heroDescription:
+"清掃、送迎、チケット、ツアーをWhatsAppから直接お申し込みいただけます。",
+
+chooseVilla:
+"ヴィラを選択",
+
+chooseService:
+"サービスを選択",
+
+housekeeping:
+"ハウスキーピング",
+
+towelReplacement:
+"タオル交換",
+
+airportPickup:
+"空港送迎（お迎え）",
+
+airportDropoff:
+"空港送迎（お送り）",
+
+baNa:
+"バーナーヒルズ チケット",
+
+chamIsland:
+"チャム島ツアー",
+
+coconutForest:
+"ココナッツフォレスト チケット",
+
+motorbike:
+"バイクレンタル",
+
+carRental:
+"レンタカー",
+
+servicePriceTitle:
+"サービス料金",
+
+chooseServicePrice:
+"サービスを選択してください",
+
+finalTotal:
+"最終料金はWhatsAppで確認いたします。",
+
+roomNumber:
+"部屋番号",
+
+phoneNumber:
+"電話番号",
+
+extraInformation:
+"追加情報",
+
+quantity:
+"数量 / 人数 / レンタル日数",
+
+note:
+"備考：フライト時間、送迎場所、特別なご要望など...",
+
+bookNow:
+"今すぐ予約",
+
+priceList:
+"サービス料金表",
+
+motorbikePrice:
+"150,000 VND / 日",
+
+baNaPrice:
+"1,200,000 VND / 人",
+
+coconutPrice:
+"450,000 VND / 人",
+
+chamPrice:
+"1,000,000 VND / 人"
+
+},
+
+
+ru: {
+
+navHome: "Главная",
+navVillas: "Виллы",
+navService: "Услуги",
+navManagement: "Управление",
+navAbout: "О нас",
+navContact: "Контакты",
+
+guestServices:
+"Услуги для гостей",
+
+heroDescription:
+"Закажите уборку, трансфер, билеты и экскурсии напрямую через WhatsApp.",
+
+chooseVilla:
+"Выберите виллу",
+
+chooseService:
+"Выберите услугу",
+
+housekeeping:
+"Уборка номера",
+
+towelReplacement:
+"Замена полотенец",
+
+airportPickup:
+"Трансфер из аэропорта",
+
+airportDropoff:
+"Трансфер в аэропорт",
+
+baNa:
+"Билеты Ba Na Hills",
+
+chamIsland:
+"Экскурсия на остров Чам",
+
+coconutForest:
+"Билеты в Кокосовый лес",
+
+motorbike:
+"Аренда мотобайка",
+
+carRental:
+"Аренда автомобиля",
+
+servicePriceTitle:
+"Стоимость услуги",
+
+chooseServicePrice:
+"Пожалуйста, выберите услугу",
+
+finalTotal:
+"Окончательная стоимость будет подтверждена через WhatsApp.",
+
+roomNumber:
+"Номер комнаты",
+
+phoneNumber:
+"Номер телефона",
+
+extraInformation:
+"Дополнительная информация",
+
+quantity:
+"Количество / Гости / Дни аренды",
+
+note:
+"Примечание: время рейса, место встречи, особые пожелания...",
+
+bookNow:
+"ЗАБРОНИРОВАТЬ",
+
+priceList:
+"Прайс-лист услуг",
+
+motorbikePrice:
+"150,000 VND / день",
+
+baNaPrice:
+"1,200,000 VND / чел.",
+
+coconutPrice:
+"450,000 VND / чел.",
+
+chamPrice:
+"1,000,000 VND / чел."
+
+}
+
+};
+
+
+/* =====================================================
+   CHANGE LANGUAGE
+===================================================== */
+
+function setLanguage(lang) {
+
+    if (!translations[lang]) {
+        lang = "en";
+    }
+
+    document.documentElement.lang = lang;
+
+    const textElements =
+        document.querySelectorAll("[data-i18n]");
+
+    textElements.forEach(function(element) {
+
+        const key =
+            element.getAttribute("data-i18n");
+
+        if (translations[lang][key]) {
+
+            element.textContent =
+                translations[lang][key];
+
+        }
+
+    });
+
+
+    const placeholders =
+        document.querySelectorAll(
+            "[data-i18n-placeholder]"
+        );
+
+    placeholders.forEach(function(element) {
+
+        const key =
+            element.getAttribute(
+                "data-i18n-placeholder"
+            );
+
+        if (translations[lang][key]) {
+
+            element.placeholder =
+                translations[lang][key];
+
+        }
+
+    });
+
+
+    localStorage.setItem(
+        "scapeLanguage",
+        lang
+    );
+
+
+    document.getElementById(
+        "languageSwitcher"
+    ).value = lang;
+
+
+    updateTranslatedServicePrice();
+
+}
+
+
+/* =====================================================
+   TRANSLATED PRICE
+===================================================== */
+
+function updateTranslatedServicePrice() {
+
+    const service =
+        document.getElementById("serviceName");
+
+    const price =
+        document.getElementById("servicePrice");
+
+    if (!service || !price) {
+        return;
+    }
+
+    const lang =
+        localStorage.getItem("scapeLanguage")
+        || "en";
+
+
+    const priceTranslations = {
+
+        "Choose Service": {
+            en: "Please choose a service",
+            vi: "Vui lòng chọn dịch vụ",
+            ko: "서비스를 선택해 주세요",
+            zh: "请选择服务",
+            ja: "サービスを選択してください",
+            ru: "Пожалуйста, выберите услугу"
+        },
+
+        "Housekeeping Service": {
+            en: "Free",
+            vi: "Miễn phí",
+            ko: "무료",
+            zh: "免费",
+            ja: "無料",
+            ru: "Бесплатно"
+        },
+
+        "Towel Replacement": {
+            en: "Free",
+            vi: "Miễn phí",
+            ko: "무료",
+            zh: "免费",
+            ja: "無料",
+            ru: "Бесплатно"
+        },
+
+        "Motorbike Rental": {
+            en: "150,000 VND / day",
+            vi: "150,000 VND / ngày",
+            ko: "150,000 VND / 일",
+            zh: "150,000 VND / 天",
+            ja: "150,000 VND / 日",
+            ru: "150,000 VND / день"
+        },
+
+        "Car Rental": {
+            en: "2,000,000 VND",
+            vi: "2,000,000 VND",
+            ko: "2,000,000 VND",
+            zh: "2,000,000 VND",
+            ja: "2,000,000 VND",
+            ru: "2,000,000 VND"
+        },
+
+        "Ba Na Hills Tickets": {
+            en: "1,200,000 VND / pax",
+            vi: "1,200,000 VND / khách",
+            ko: "1,200,000 VND / 인",
+            zh: "1,200,000 VND / 人",
+            ja: "1,200,000 VND / 人",
+            ru: "1,200,000 VND / чел."
+        },
+
+        "Coconut Forest Tickets": {
+            en: "450,000 VND / pax",
+            vi: "450,000 VND / khách",
+            ko: "450,000 VND / 인",
+            zh: "450,000 VND / 人",
+            ja: "450,000 VND / 人",
+            ru: "450,000 VND / чел."
+        },
+
+        "Cham Island Tour": {
+            en: "1,000,000 VND / pax",
+            vi: "1,000,000 VND / khách",
+            ko: "1,000,000 VND / 인",
+            zh: "1,000,000 VND / 人",
+            ja: "1,000,000 VND / 人",
+            ru: "1,000,000 VND / чел."
+        },
+
+        "Airport Pickup": {
+            en: "300,000 VND",
+            vi: "300,000 VND",
+            ko: "300,000 VND",
+            zh: "300,000 VND",
+            ja: "300,000 VND",
+            ru: "300,000 VND"
+        },
+
+        "Airport Drop-off": {
+            en: "300,000 VND",
+            vi: "300,000 VND",
+            ko: "300,000 VND",
+            zh: "300,000 VND",
+            ja: "300,000 VND",
+            ru: "300,000 VND"
+        }
+
+    };
+
+
+    const selected =
+        service.value;
+
+
+    if (priceTranslations[selected]) {
+
+        price.textContent =
+            priceTranslations[selected][lang]
+            ||
+            priceTranslations[selected].en;
+
+    }
+
+}
+
+
+/* =====================================================
+   SERVICE CHANGE
+===================================================== */
+
+document.getElementById(
+    "serviceName"
+).addEventListener(
+    "change",
+    function() {
+
+        updateTranslatedServicePrice();
+
+    }
+);
+
+
+/* =====================================================
+   LANGUAGE SWITCHER
+===================================================== */
+
+document.getElementById(
+    "languageSwitcher"
+).addEventListener(
+    "change",
+    function() {
+
+        setLanguage(this.value);
+
+    }
+);
+
+
+/* =====================================================
+   AUTO DETECT LANGUAGE
+===================================================== */
+
+function detectLanguage() {
+
+    const saved =
+        localStorage.getItem(
+            "scapeLanguage"
+        );
+
+    if (saved) {
+        return saved;
+    }
+
+
+    const browserLanguage =
+        navigator.language
+        .toLowerCase();
+
+
+    if (
+        browserLanguage.startsWith("vi")
+    ) {
+        return "vi";
+    }
+
+
+    if (
+        browserLanguage.startsWith("ko")
+    ) {
+        return "ko";
+    }
+
+
+    if (
+        browserLanguage.startsWith("zh")
+    ) {
+        return "zh";
+    }
+
+
+    if (
+        browserLanguage.startsWith("ja")
+    ) {
+        return "ja";
+    }
+
+
+    if (
+        browserLanguage.startsWith("ru")
+    ) {
+        return "ru";
+    }
+
+
+    return "en";
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        const language =
+            detectLanguage();
+
+        setLanguage(language);
+
+    }
+);
+
+</script>
+
 
 </body>
 </html>
